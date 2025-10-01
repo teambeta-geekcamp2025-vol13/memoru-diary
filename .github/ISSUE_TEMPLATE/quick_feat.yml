@@ -4,6 +4,14 @@ title: "[タスクのカテゴリー] "
 type: "Task"
 body:
   - type: textarea
+    id: summary
+    attributes:
+      label: 概要
+      description: タスク内容を簡潔に説明してください。
+      placeholder: 新規ページの実装
+    validations:
+      required: true
+  - type: textarea
     id: tasklist
     attributes:
       label: タスク
