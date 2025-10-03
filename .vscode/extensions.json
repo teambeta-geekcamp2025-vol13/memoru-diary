@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "biomejs.biome",
+    "ms-azuretools.vscode-docker",
+    "pranaygp.vscode-css-peek",
+    "editorconfig.editorconfig",
+    "donjayamanne.githistory",
+    "seatonjiang.gitmoji-vscode",
+    "oderwat.indent-rainbow"
+  ]
+}
