@@ -1,0 +1,18 @@
+.header {
+  width: 100%;
+
+  > .navbar {
+    width: 100%;
+    padding-block: 12px;
+    padding-inline: var(--page-padding);
+    border-bottom: solid 1px var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+}
