@@ -1,5 +1,8 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./BottomNav.module.css";
 
 export default function BottomNav() {
@@ -38,23 +41,29 @@ export default function BottomNav() {
     },
   ];
 
-  // TODO: 現在のページに応じてアイコンを切り替える
+  const currentPath = usePathname();
+  const basePath = `/${currentPath.split("/")[1]}`;
+
   return (
     <footer className={styles.bottom_nav}>
       <ul className={styles.list}>
-        {navItems.map((item) => (
-          <li className={styles.item} key={item.name}>
-            <Link className={styles.tap_area} href={item.href}>
-              <Icon
-                className={styles.icon}
-                icon={item.icon.default}
-                width="32"
-                height="32"
-              />
-              <span className={styles.label}>{item.name}</span>
-            </Link>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          const isActive = basePath === item.href;
+
+          return (
+            <li className={styles.item} key={item.name}>
+              <Link className={styles.tap_area} href={item.href}>
+                <Icon
+                  className={styles.icon}
+                  icon={isActive ? item.icon.fill : item.icon.default}
+                  width="32"
+                  height="32"
+                />
+                <span className={styles.label}>{item.name}</span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </footer>
   );
