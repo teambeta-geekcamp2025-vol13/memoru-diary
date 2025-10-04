@@ -1,5 +1,6 @@
 .wrapper {
   width: 100%;
+  padding-inline: var(--page-padding);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,15 +10,17 @@
   }
 
   > .form {
+    width: 100%;
+
     > .input_image_area {
       padding-block: 40px;
       display: flex;
       align-items: center;
-      gap: 20px;
+      justify-content: center;
+      gap: 24px;
 
       > .wrapper {
-        width: 50vw;
-        max-width: 180px;
+        width: 100%;
         padding-block: 32px;
         padding-inline: 20px;
         border: 1px solid var(--gray);
