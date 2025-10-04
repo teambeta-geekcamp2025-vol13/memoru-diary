@@ -62,9 +62,9 @@ export function useImageToText() {
 
       try {
         const dataUrl = await fileToBase64(file);
-        const base64Payload = dataUrl.includes(",")
-          ? (dataUrl.split(",")[1] ?? "")
-          : dataUrl;
+        // Robust base64 extraction from data URL
+        const match = /^data:(?:[\w/+.-]+)?;base64,([A-Za-z0-9+/=]+)$/.exec(dataUrl);
+        const base64Payload = match ? match[1] : "";
 
         if (!base64Payload) {
           throw new Error("base64Payload が空です");
