@@ -2,7 +2,7 @@
 
 import { Icon } from "@iconify/react";
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useImageStore } from "@/store/imageStore";
 import Popup from "../popup/Popup";
 import styles from "./FormSection.module.css";
@@ -10,9 +10,22 @@ import PreviewImage from "./PreviewImage";
 
 export default function FormSection() {
   const [isOpen, setIsOpen] = useState(false);
-
   const setImage = useImageStore((state) => state.setImage);
   const [text, setText] = useState("");
+  const [uniquePlaceholder, setUniquePlaceholder] = useState("");
+
+  const placeholderList = [
+    "いま、なにしている？",
+    "今日の気分は？",
+    "それでは一言どうぞ！",
+    "小さな思い出も塵積もだ！",
+    "ふむふむ、なになに？",
+  ];
+
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * placeholderList.length);
+    setUniquePlaceholder(placeholderList[randomIndex]);
+  }, []);
 
   function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files?.[0]) {
@@ -79,8 +92,15 @@ export default function FormSection() {
         </div>
         {/* テキストエリア */}
         <div className={styles.input_text_area}>
-          <input type="text" value={text} onChange={handleTextChange} />
-          <button type="submit">
+          <input
+            className={styles.input_text}
+            type="text"
+            value={text}
+            // お楽しみ要素
+            placeholder={uniquePlaceholder}
+            onChange={handleTextChange}
+          />
+          <button className={styles.submit_button} type="submit">
             <Icon
               className={styles.icon}
               icon="ph:paper-plane-tilt-duotone"
