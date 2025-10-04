@@ -1,4 +1,5 @@
 .page {
+<<<<<<< HEAD
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
@@ -163,5 +164,11 @@ a.secondary {
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
+=======
+  padding-block: 20px;
+
+  > .title {
+    margin-block: 8px 12px;
+>>>>>>> origin/main
   }
 }

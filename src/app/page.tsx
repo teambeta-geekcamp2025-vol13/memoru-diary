@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 import Image from "next/image";
+=======
+>>>>>>> origin/main
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <div className={styles.page}>
+<<<<<<< HEAD
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -90,6 +94,9 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+=======
+      <h1 className={styles.title}>アプリトップ</h1>
+>>>>>>> origin/main
     </div>
   );
 }
