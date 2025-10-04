@@ -78,8 +78,8 @@
 .slide Img{
   animation: slideshow 10s linear infinite;
   position: absolute;
-  transform: translate(30%,-10%);
-  width: 80%;
+  transform: translate(55%,3%);
+  width: 60%;
   height: auto;
   top: 0;
   left: 0;
