@@ -7,7 +7,7 @@ export default function () {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <h1 className={styles.title}>Memoru日記</h1>
-        <IconLink iconName="ph:bell-duotone" href="/notify" />
+        <IconLink size={32} iconName="ph:bell-duotone" href="/notify" />
       </nav>
       <ProgressBar allTasks={5} completedTasks={3} />
     </header>
