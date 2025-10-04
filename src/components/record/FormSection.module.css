@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > .title {
+  }
+
+  > .form {
+    > .input_image_area {
+      padding-block: 40px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      > .wrapper {
+        width: 160px;
+        padding: 20px;
+        border: 1px solid var(--gray);
+        cursor: pointer;
+
+        > .label {
+          cursor: pointer;
+
+          > .icon {
+          }
+
+          > .text {
+          }
+        }
+      }
+    }
+
+    > .input_text_area {
+    }
+  }
+}
