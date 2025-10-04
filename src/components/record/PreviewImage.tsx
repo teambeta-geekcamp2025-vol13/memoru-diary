@@ -19,7 +19,7 @@ export default function PreviewImage({ onClearImage }: Props) {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>プレビュー</h3>
-      {/* できればスクロールアイコン＆アニメーション。あるいはヒントのアイコン */}
+      {/* TODO: できればスクロールアイコン＆アニメーション。あるいはヒントのアイコン */}
       <p className={styles.scroll_hint}>スクロールできます</p>
       {imageUrl ? (
         <div className={styles.preview_wrapper}>
