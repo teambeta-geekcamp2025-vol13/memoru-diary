@@ -51,10 +51,10 @@ export default function FormSection() {
               <Icon
                 className={styles.icon}
                 icon="ph:camera-plus-duotone"
-                width="24"
-                height="24"
+                width="60"
+                height="60"
               />
-              <p>写真を撮る</p>
+              <p className={styles.text}>写真を撮る</p>
             </label>
           </div>
           {/* フォルダから選択 */}
@@ -70,10 +70,10 @@ export default function FormSection() {
               <Icon
                 className={styles.icon}
                 icon="ph:image-duotone"
-                width="24"
-                height="24"
+                width="60"
+                height="60"
               />
-              <p>画像を選ぶ</p>
+              <p className={styles.text}>画像を選ぶ</p>
             </label>
           </div>
         </div>
