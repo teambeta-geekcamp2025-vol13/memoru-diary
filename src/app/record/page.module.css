@@ -1,0 +1,44 @@
+.page {
+  padding-block: 20px;
+  overflow: auto;
+
+  > .title {
+    margin-block: 8px 12px;
+  }
+
+  > .sendBtn {
+    margin: 50px 20px 50px auto;
+    margin-left: auto;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    display: block;
+    border-radius: 30%;
+    background-color: #d9d9d9;
+    color: black;
+  }
+  > .btn {
+    margin: 50px 20px;
+    height: 50px;
+    width: 150px;
+    text-align: center;
+    display: block;
+    border-radius: 30%;
+    background-color: #d9d9d9;
+    color: black;
+  }
+
+  > .btn_group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  > .image {
+    margin: 20px auto;
+    display: block;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+  }
+}

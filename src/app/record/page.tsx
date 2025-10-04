@@ -1,0 +1,37 @@
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
+
+export default function SendPage() {
+  return (
+    <form>
+      <div className={styles.page}>
+        <h1 className={styles.title}>プレビュー</h1>
+        <Link href="/">
+          <button className={styles.btn} type="button">
+            キャンセル
+          </button>
+        </Link>
+        <div className={styles.btn_group}>
+          <button className={styles.btn} type="button">
+            再撮影
+          </button>
+          <button className={styles.btn} type="button">
+            選び直し
+          </button>
+        </div>
+
+        <Image
+          className={styles.image}
+          src="/sample.jpg"
+          alt="preview"
+          height={500}
+          width={300}
+        />
+        <button className={styles.sendBtn} type="submit">
+          送信
+        </button>
+      </div>
+    </form>
+  );
+}
