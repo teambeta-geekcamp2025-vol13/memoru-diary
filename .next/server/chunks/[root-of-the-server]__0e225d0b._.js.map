@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 45, "column": 0}, "map": {"version":3,"sources":["file:///memoru-diary/src/app/api/%5B%5B...hono%5D%5D/route.ts"],"sourcesContent":["import { handle } from \"hono/vercel\";\nimport { Hono } from \"hono\";\n\nconst app = new Hono().basePath(\"/api\");\n\napp.get(\"/hello\", (c) => c.json({ message: \"Hello from Hono\" }));\n\nexport const GET = handle(app);\nexport const POST = handle(app);\nexport const OPTIONS = handle(app);\n"],"names":[],"mappings":";;;;;;;;AAAA;AAAA;AACA;AAAA;;;AAEA,MAAM,MAAM,IAAI,8IAAI,GAAG,QAAQ,CAAC;AAEhC,IAAI,GAAG,CAAC,UAAU,CAAC,IAAM,EAAE,IAAI,CAAC;QAAE,SAAS;IAAkB;AAEtD,MAAM,MAAM,IAAA,wKAAM,EAAC;AACnB,MAAM,OAAO,IAAA,wKAAM,EAAC;AACpB,MAAM,UAAU,IAAA,wKAAM,EAAC","debugId":null}}]
-}
