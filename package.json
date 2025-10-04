@@ -1,20 +1,25 @@
 {
   "name": "memoru-diary",
   "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "biome check",
-    "format": "biome format --write"
-  },
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "dependencies": {
+    "@google/genai": "^1.21.0",
+    "@hono/node-server": "^1.19.5",
+    "@supabase/supabase-js": "^2.39.0",
+    "@types/node": "^24.5.2",
+    "drizzle-kit": "^0.28.0",
+    "drizzle-orm": "^0.36.0",
     "hono": "^4.6.12",
     "next": "15.5.4",
+    "pg": "8.16.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "zustand": "^5.0.8"
+    "zustand": "^5.0.8",
+    "supabase": "^2.47.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -22,6 +27,15 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5"
+    "typescript": "^5",
+    "eslint": "^8.0.0",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write"
   }
 }
