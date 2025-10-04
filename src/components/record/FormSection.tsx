@@ -1,18 +1,27 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import type React from "react";
-import { useEffect, useState } from "react";
+import { type ChangeEvent, type FormEvent, useEffect, useState } from "react";
 import { useImageStore } from "@/store/imageStore";
 import Popup from "../popup/Popup";
 import styles from "./FormSection.module.css";
+import { useImageToText } from "./hooks/useImageToText";
 import PreviewImage from "./PreviewImage";
 
 export default function FormSection() {
   const [isOpen, setIsOpen] = useState(false);
   const setImage = useImageStore((state) => state.setImage);
+  const file = useImageStore((state) => state.file);
   const [text, setText] = useState("");
   const [uniquePlaceholder, setUniquePlaceholder] = useState("");
+  const {
+    aiText,
+    errorMessage,
+    isLoading,
+    submit,
+    reset: resetResult,
+    setErrorMessage: setSubmissionError,
+  } = useImageToText();
 
   const placeholderList = [
     "いま、なにしている？",
@@ -27,27 +36,53 @@ export default function FormSection() {
     setUniquePlaceholder(placeholderList[randomIndex]);
   }, []);
 
-  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleImageChange(e: ChangeEvent<HTMLInputElement>) {
     if (e.target.files?.[0]) {
       const selectedFile = e.target.files[0];
       setImage(selectedFile);
       setIsOpen(true);
+      resetResult();
       console.log("選択された画像ファイル: ", selectedFile);
     } else {
-      alert("画像のアップロードに失敗しました！もう一度お試しください。");
+      setSubmissionError(
+        "画像のアップロードに失敗しました。もう一度お試しください。",
+      );
     }
   }
 
-  function handleTextChange(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleTextChange(e: ChangeEvent<HTMLInputElement>) {
     setText(e.target.value);
     console.log("一言メモ: ", e.target.value);
+  }
+
+  function handleClosePopup() {
+    setIsOpen(false);
+  }
+
+  function handleClearPreview() {
+    resetResult();
+    setIsOpen(false);
+  }
+
+  async function submitImageRequest() {
+    if (!file) {
+      setSubmissionError("まずは画像を選択してください。");
+      return;
+    }
+
+    await submit(file);
+  }
+
+  function handleFormSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    void submitImageRequest();
   }
 
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>あなたはいま、何してる？</h2>
       {/* フォームセクション */}
-      <form className={styles.form} action="">
+      <form className={styles.form} onSubmit={handleFormSubmit}>
         {/* 画像エリア */}
         <div className={styles.input_image_area}>
           {/* カメラで撮影 */}
@@ -58,7 +93,7 @@ export default function FormSection() {
               capture="environment"
               accept="image/*"
               id="launch_camera"
-              onChange={() => handleImageChange}
+              onChange={handleImageChange}
             />
             <label className={styles.label} htmlFor="launch_camera">
               <Icon
@@ -111,10 +146,44 @@ export default function FormSection() {
         </div>
       </form>
       {/* プレビューセクション */}
-      <Popup isOpen={isOpen} setClose={() => setIsOpen(false)}>
-        <PreviewImage onClearImage={() => setIsOpen(false)} />
-        {/* TODO: 画像を送信するボタン等々 */}
+      <Popup isOpen={isOpen} setClose={handleClosePopup}>
+        <PreviewImage onClearImage={handleClearPreview} />
+        <div className={styles.popup_footer}>
+          <button
+            className={styles.popup_submit_button}
+            type="button"
+            onClick={() => void submitImageRequest()}
+            disabled={isLoading}
+          >
+            {isLoading ? "送信中…" : "送信！"}
+          </button>
+          <p className={styles.status_message} aria-live="polite">
+            {isLoading ? "画像を解析しています…" : ""}
+          </p>
+          {errorMessage && (
+            <p className={styles.error_message} role="alert">
+              {errorMessage}
+            </p>
+          )}
+          {aiText && (
+            <div className={styles.ai_text_container}>
+              <h3 className={styles.ai_text_title}>AIからのメモ</h3>
+              <p className={styles.ai_text_body}>{aiText}</p>
+            </div>
+          )}
+        </div>
       </Popup>
+      {aiText && (
+        <section className={styles.result_section} aria-live="polite">
+          <h3 className={styles.result_title}>最新のAIメモ</h3>
+          <p className={styles.result_text}>{aiText}</p>
+        </section>
+      )}
+      {!isOpen && errorMessage && (
+        <p className={styles.error_message} role="alert">
+          {errorMessage}
+        </p>
+      )}
     </section>
   );
 }
