@@ -1,12 +1,27 @@
 "use client";
 
 import { Icon } from "@iconify/react";
+import type React from "react";
 import { useState } from "react";
+import { useImageStore } from "@/store/imageStore";
+import Popup from "../popup/Popup";
 import styles from "./FormSection.module.css";
+import PreviewImage from "./PreviewImage";
 
 export default function FormSection() {
-  // TODO: 次のページでも状態を使用するのでグローバルステート用のライブラリに移行する
+  const [isOpen, setIsOpen] = useState(false);
+
+  const setImage = useImageStore((state) => state.setImage);
   const [text, setText] = useState("");
+
+  function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target.files?.[0]) {
+      const selectedFile = e.target.files[0];
+      setImage(selectedFile);
+      setIsOpen(true);
+      console.log("選択された画像ファイル: ", selectedFile);
+    }
+  }
 
   function handleTextChange(e: React.ChangeEvent<HTMLInputElement>) {
     setText(e.target.value);
@@ -16,6 +31,7 @@ export default function FormSection() {
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>あなたはいま、何してる？</h2>
+      {/* フォームセクション */}
       <form className={styles.form} action="">
         {/* 画像エリア */}
         <div className={styles.input_image_area}>
@@ -27,6 +43,7 @@ export default function FormSection() {
               capture="environment"
               accept="image/*"
               id="launch_camera"
+              onChange={handleImageChange}
             />
             <label className={styles.label} htmlFor="launch_camera">
               <Icon
@@ -45,6 +62,7 @@ export default function FormSection() {
               id="select_from_folder"
               type="file"
               accept="image/*"
+              onChange={handleImageChange}
             />
             <label className={styles.label} htmlFor="select_from_folder">
               <Icon
@@ -70,6 +88,11 @@ export default function FormSection() {
           </button>
         </div>
       </form>
+      {/* プレビューセクション */}
+      <Popup isOpen={isOpen} setClose={() => setIsOpen(false)}>
+        <PreviewImage onClearImage={() => setIsOpen(false)} />
+        {/* TODO: 画像を送信するボタン等々 */}
+      </Popup>
     </section>
   );
 }
