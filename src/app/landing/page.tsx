@@ -31,7 +31,7 @@ export default function Landing() {
         <h2 className={styles.h2}>紹介スライド</h2>
         <div className={styles.bottom}>
 
-            <p className={styles.links}><Image src={github} alt="github" width={40} height={40} /><a href="https://github.com/teambeta-geekcamp2025-vol13/memoru-diary">ソースコード</a></p>
+            <p className={styles.links}><Image src={github} alt="github" width={30} height={30} /><a href="https://github.com/teambeta-geekcamp2025-vol13/memoru-diary">ソースコード</a></p>
             <p className={styles.links}><a href="">✉️お問い合わせフォーム</a></p>
             <p className={styles.p}>利用規約・免責事項</p>
             <p className={styles.p}>ver0.01</p>
