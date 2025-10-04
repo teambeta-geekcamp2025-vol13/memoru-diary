@@ -15,6 +15,7 @@ export default function Popup({ children, isOpen, setClose }: Props) {
         <section className={styles.content}>{children}</section>
       </div>
       <button className={styles.close_button} type="button" onClick={setClose}>
+        {/* TODO: アイコンを追加、スタイルの微修正 */}
         閉じる
       </button>
     </div>
