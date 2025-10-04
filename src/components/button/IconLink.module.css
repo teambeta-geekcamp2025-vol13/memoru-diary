@@ -1,0 +1,8 @@
+.icon_wrapper {
+  padding-block: 4px;
+  padding-inline: 8px;
+
+  > .icon {
+    color: var(--black-light);
+  }
+}
