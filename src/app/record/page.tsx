@@ -4,16 +4,8 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { useState } from "react";
 
-export default function SendPage() {
-      const [diary,setdiary] = useState({
-       essay:'',
-       photo:''    
-    })
-
-    //  async function SendData(data) {
-    //   try { const data_send = await fetch("",{method:"POST"},body)
-    //  } catch (error){console.log('データ送信エラー:', error)}
-     
+export default function record() {
+      const [image, setImage] = useState('')
     
 
 
