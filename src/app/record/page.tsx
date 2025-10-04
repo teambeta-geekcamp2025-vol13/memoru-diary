@@ -1,11 +1,25 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function SendPage() {
-  return (
-    <form>
-      <div className={styles.page}>
+      const [diary,setdiary] = useState({
+       essay:'',
+       photo:''    
+    })
+
+    //  async function SendData(data) {
+    //   try { const data_send = await fetch("",{method:"POST"},body)
+    //  } catch (error){console.log('データ送信エラー:', error)}
+     
+    
+
+
+     return (
+      <form>
+       <div className={styles.page}>
         <h1 className={styles.title}>プレビュー</h1>
         <Link href="/">
           <button className={styles.btn} type="button">
@@ -13,10 +27,10 @@ export default function SendPage() {
           </button>
         </Link>
         <div className={styles.btn_group}>
-          <button className={styles.btn} type="button">
+          <button id="photo" className={styles.btn} type="button">
             再撮影
           </button>
-          <button className={styles.btn} type="button">
+          <button id="photo" className={styles.btn} type="button">
             選び直し
           </button>
         </div>
@@ -28,9 +42,11 @@ export default function SendPage() {
           height={500}
           width={300}
         />
-        <button className={styles.sendBtn} type="submit">
+        <input className={styles.textarea} id="essay" type="text"/>
+        <button  className={styles.sendBtn} type="submit">
           送信
         </button>
+        
       </div>
     </form>
   );
