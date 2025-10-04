@@ -20,6 +20,8 @@ export default function FormSection() {
       setImage(selectedFile);
       setIsOpen(true);
       console.log("選択された画像ファイル: ", selectedFile);
+    } else {
+      alert("画像のアップロードに失敗しました！もう一度お試しください。");
     }
   }
 
@@ -43,7 +45,7 @@ export default function FormSection() {
               capture="environment"
               accept="image/*"
               id="launch_camera"
-              onChange={handleImageChange}
+              onChange={() => handleImageChange}
             />
             <label className={styles.label} htmlFor="launch_camera">
               <Icon
