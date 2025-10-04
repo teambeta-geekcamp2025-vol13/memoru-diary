@@ -15,5 +15,6 @@
     "https://www.schemastore.org/github-issue-forms.json": [
       ".github/ISSUE_TEMPLATE/*.yml"
     ]
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
