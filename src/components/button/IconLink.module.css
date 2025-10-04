@@ -1,9 +1,8 @@
 .icon_wrapper {
-  padding: 8px;
+  padding-block: 4px;
+  padding-inline: 8px;
 
   > .icon {
-    height: 32px;
-    width: 32px;
     color: var(--black-light);
   }
 }

@@ -4,21 +4,18 @@ import styles from "./IconLink.module.css";
 
 type PageProps = {
   iconName: string;
-  isFilled?: boolean;
   href: string;
+  size?: number;
 };
 
-export default function IconLink({
-  iconName,
-  isFilled = false,
-  href,
-}: PageProps) {
+export default function IconLink({ iconName, href, size = 24 }: PageProps) {
   return (
     <Link href={href} className={styles.icon_wrapper}>
       <Icon
         className={styles.icon}
         icon={iconName}
-        fontStyle={isFilled ? "filled" : "outlined"}
+        width={size}
+        height={size}
       />
     </Link>
   );
