@@ -8,7 +8,7 @@ export default function DiaryPage() {
     <div className={styles.page}>
       <h1 className={styles.title}>日記ページ</h1>
     <ul>
-       <li>id:{" " + router.diary_id.id}</li>
+       <li>id:test</li>
     </ul>
     </div>
   );
