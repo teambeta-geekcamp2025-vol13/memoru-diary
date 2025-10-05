@@ -42,8 +42,8 @@ export default function DiariesList() {
           <ul key={key}>
             <li className={styles.diary_li}>
               <Link href={`/diary/${encodeURIComponent(value.date)}`}>
-                <p>{value.date}</p>
-                <h2>{value.title}</h2>
+                <p className={styles.p}>{value.date}</p>
+                <h2 className={styles.sentence}>{value.title}</h2>
               </Link>
             </li>
           </ul>

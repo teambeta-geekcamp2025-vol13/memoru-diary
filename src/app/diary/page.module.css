@@ -7,7 +7,7 @@
 }
 .top_li {
   display: inline-block;
-  margin-inline: 50px;
+  margin-inline: 45px;
   margin-bottom: 10px;
   list-style: none;
 }
@@ -15,7 +15,13 @@
 .diary_li {
   list-style: none;
   margin-top: 10px;
-  border: solid 3px #5d627b;
+  padding: 20px;
+  border: none;
+  /* border: solid 1px #8e8e8e; */
+
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 .h2 {
   margin-bottom: 15px;
@@ -26,9 +32,10 @@
   width: 100%;
   margin-top: 10px;
 }
-
-.box Link {
-  display: block;
-  width: 100%;
-  height: 100%;
+.p {
+  margin-bottom: 7px;
+}
+.sentence {
+  font-size: 23px;
+  font-weight: normal;
 }
