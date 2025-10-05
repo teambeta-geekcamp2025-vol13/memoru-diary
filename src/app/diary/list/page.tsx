@@ -2,7 +2,9 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useState } from "react";
+import { useState ,useContext,createContext} from "react";
+import DiaryPage from "../diary/page";
+
 
 
 export default function DiariesList() {
@@ -25,13 +27,14 @@ export default function DiariesList() {
     diary_04: {
       time: "2025.09.28",
       title: "買い物で失敗した",
-    },
-
-
-
-});
-
+    },});
+    
+    function Setdiary_id(id : string){  const diary_id={id: String}
+                                        return diary_id
+}
+    
   return (
+  
     <div>
       
       <div className={styles.top_box}>
@@ -43,22 +46,23 @@ export default function DiariesList() {
          </ul>
       </div>
       <div className={styles.box}>
-        <Link href="/diary">
+        
         {Object.entries(diary).map(([key, value]) => (
-        <ul>
-          <li className={styles.diary_li}>
-            <p key={key}>
-            <p>{value.time}</p> 
-            <h2>{value.title}</h2>
-            </p>
+         <ul key={key}>
+          <li className={styles.diary_li} >
+            <Link href={{ pathname:"diary",query:String(Setdiary_id(value.time))}} as="diary">
+    
+             <p>{value.time}</p> 
+             <h2>{value.title}</h2>
+             
+            </Link>
           </li>
-        </ul>
+         </ul>
+        
              ))}
 
-        </Link>
-    </div>
-    
-
-    </div>
+     
+      </div>
+     </div>
   );
 };
