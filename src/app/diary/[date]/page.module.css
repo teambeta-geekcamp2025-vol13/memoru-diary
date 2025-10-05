@@ -1,18 +1,30 @@
-.title{
-    margin: 0 auto;
-    align-items: center;
-    border: 2px solid;
-    text-align: center;
+.page {
+  padding: 20px;
 }
-.date{
-    margin-left: 15px;
+.back {
+  font-size: 20px;
+  font-weight: normal;
 }
-.essay{
-  margin-top: 30px;
+.diarybody {
+  margin: 30px auto;
+}
+
+.title {
+  margin: 0 auto 15px auto;
+  align-items: center;
+  text-align: center;
+  border: none;
+  font-size: 30px;
+}
+.date {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+.essay {
   margin: 0 auto;
-  border: 2px solid #151414;
-  border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
+  border: 1px solid #8b8b8b;
+  border-radius: 10px;
   inline-size: 450px;
   overflow-wrap: break-word;
 }

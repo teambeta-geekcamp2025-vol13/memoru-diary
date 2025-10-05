@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { use } from "react";
 import styles from "./page.module.css";
 
@@ -10,7 +11,9 @@ export default function DiaryPage({ params }: props) {
   //const aync data = await try{fetch().then(}}catch(error){error:error}
   return (
     <div className={styles.page}>
-      <h1>日記ページ</h1>
+      <Link href={"/diary"}>
+        <h2 className={styles.back}>＜ 日記一覧へ戻る</h2>
+      </Link>
       <div className={styles.diarybody}>
         <h2 className={styles.title}>data.title</h2>
         <p className={styles.date}>記録:{date}</p>
