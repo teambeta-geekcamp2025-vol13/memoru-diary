@@ -11,8 +11,8 @@ export default function () {
           src="/logo.svg"
           alt="Memoru日記ロゴ"
           className={styles.logo}
-          height={40}
-          width={145}
+          height={43}
+          width={150}
         />
         <IconLink size={32} iconName="ph:bell-duotone" href="/notify" />
       </nav>
