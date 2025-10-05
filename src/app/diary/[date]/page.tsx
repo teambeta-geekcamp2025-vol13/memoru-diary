@@ -20,7 +20,7 @@ export default function DiaryPage({ params }: props) {
           午後は近所の図書館で本を読んで、帰りにパン屋でクロワッサンを買った。
           なんでもない一日だけど、こういう日がいちばん好きかもしれない。
         </div>
-      </div>
+     </div>
     </div>
   );
 }

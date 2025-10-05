@@ -27,6 +27,13 @@ export default function DiariesList() {
     },
   });
 
+<<<<<<< HEAD
+export default function DiaryPage() {
+    const router = useRouter();
+     
+
+=======
+>>>>>>> refs/remotes/origin/diaries_list#7
   return (
     <div className={styles.page}>
       <div className={styles.top_box}>
