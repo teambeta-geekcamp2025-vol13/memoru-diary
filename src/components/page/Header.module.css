@@ -11,7 +11,7 @@
     justify-content: space-between;
   }
 
-  > .logo {
+  .navbar > .logo {
     height: 43px;
     width: auto;
   }
