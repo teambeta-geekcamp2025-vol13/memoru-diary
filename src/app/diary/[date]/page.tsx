@@ -1,6 +1,8 @@
 "use client"
 import { use } from "react";
 import styles from "./page.module.css";
+import Link from "next/link";
+
 type props ={params: Promise<{date: string}>}
 
 
@@ -21,6 +23,7 @@ export default function DiaryPage({params}: props) {
           なんでもない一日だけど、こういう日がいちばん好きかもしれない。
         </div>
      </div>
+     <Link href="/"><botton>戻る</botton></Link>
     </div>
   );
 }

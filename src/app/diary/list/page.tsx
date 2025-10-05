@@ -2,29 +2,37 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
-import { useState ,useContext,createContext} from "react";
+import { useState ,useContext,createContext, useEffect} from "react";
 
 export default function DiariesList() {
-   interface diary_json {
-      [diary_name:string]:{ date:string,
-                            title:string}}
+   type diary_json ={
+  "diaries": [
+    {
+      "id": string,
+      "title": string,
+      "created_at": string
+    }
+  ]
+}
+
+ 
+    
+  const USER_ID = "teamBeta"
   const [diary,Setdiary] = useState<diary_json>({
-    diary_01: {
-      date: "2025.09.30",
+   diaries:[{
+      id :"1",
       title: "競技プログラミングの勉強をした",
-    },
-    diary_02: {
-      date: "2025.09.30",
-      title: "競技プログラミングの勉強をした",
-    },
-    diary_03: {
-      date: "2025.09.29",
-      title: "今日は紅葉を見に行ったよ",
-    },
-    diary_04: {
-      date: "2025.09.28",
-      title: "買い物で失敗した",
-    },});
+      created_at: "2025.09.30"}]);
+
+    const FetchData = async () => {
+    try {
+      const response = await fetch('https://memoru-diary.vercel.app/api/'+USER_ID);
+      const data = response.json
+      Setdiary(data)
+      return diary
+    } catch (error) {
+      console.error('データ取得エラー:', error);}}
+    useEffect(FetchData(),[])
     
 
     
