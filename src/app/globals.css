@@ -1,17 +1,18 @@
 :root {
   /* Size */
-  --page-padding: 30px;
+  --page-padding: 20px;
   /* Color Scheme */
   --white: #ffffff;
   --black: #000000;
   --black-light: #252e32;
   --gray: #cac2c2;
   --gray-light: #f5ece9;
-  --primary-blue: #9cc5f0;
+  --primary-blue: #8fbeef;
   --primary-green: #caebc0;
   --primary-yellow: #f5deb3;
   --primary-cream: #fffff0;
   --primary-purple: #e6a5e6;
+  --error-red: #d64545;
 }
 
 @media (prefers-color-scheme: dark) {
