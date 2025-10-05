@@ -1,7 +1,34 @@
 .page {
-  padding-block: 20px;
+  padding: var(--page-padding);
+}
 
-  > .title {
-    margin-block: 8px 12px;
-  }
+.top_box {
+  border-bottom: thick double #000000;
+}
+.top_li {
+  display: inline-block;
+  margin-inline: 50px;
+  margin-bottom: 10px;
+  list-style: none;
+}
+
+.diary_li {
+  list-style: none;
+  margin-top: 10px;
+  border: solid 3px #5d627b;
+}
+.h2 {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.box {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.box Link {
+  display: block;
+  width: 100%;
+  height: 100%;
 }

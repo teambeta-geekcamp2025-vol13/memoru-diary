@@ -1,0 +1,18 @@
+.title{
+    margin: 0 auto;
+    align-items: center;
+    border: 2px solid;
+    text-align: center;
+}
+.date{
+    margin-left: 15px;
+}
+.essay{
+  margin-top: 30px;
+  margin: 0 auto;
+  border: 2px solid #151414;
+  border-radius: 5px;
+  padding: 10px;
+  inline-size: 450px;
+  overflow-wrap: break-word;
+}
