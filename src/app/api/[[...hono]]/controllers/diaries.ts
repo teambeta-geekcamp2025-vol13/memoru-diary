@@ -1,7 +1,9 @@
 import { Hono } from "hono";
+import type { ContentfulStatusCode } from "hono/utils/http-status";
 import { z } from "zod";
 
 import {
+  createDiary,
   getDiaryByUserAndDate,
   listDiariesByUser,
 } from "../services/diariesService";
@@ -84,6 +86,47 @@ diariesController.get("/", (c) => {
   return c.html(html);
 });
 
+diariesController.post("/create", async (c) => {
+  const schema = z.object({
+    userId: z.string().uuid(),
+  });
+
+  const body = await c.req.json();
+  const parsed = schema.safeParse(body);
+  if (!parsed.success) {
+    return c.json(
+      {
+        error: "リクエストボディが正しくありません",
+        details: parsed.error.flatten(),
+      },
+      400,
+    );
+  }
+
+  const { userId } = parsed.data;
+
+  try {
+    const diary = await createDiary(userId);
+    return c.json({ message: "diary created", diary }, 201);
+  } catch (error) {
+    if (error instanceof Error) {
+      const statusMap: Partial<Record<string, ContentfulStatusCode>> = {
+        "今日のライフレコードが見つかりません。": 404,
+        "今日の日記は既に作成されています。": 409,
+        "日記を生成するためのログが保存されていません。ログを記録してから再度お試しください。": 400,
+        "AIからのレスポンスが空でした。": 502,
+        "AIレスポンスの解析に失敗しました。": 502,
+      };
+      const fallbackStatus: ContentfulStatusCode = 500;
+      const status = statusMap[error.message] ?? fallbackStatus;
+      return c.json({ error: error.message }, status);
+    }
+
+    console.error(error);
+    return c.json({ error: "日記の作成に失敗しました" }, 500);
+  }
+});
+
 diariesController.get("/:userId/:date?", async (c) => {
   const params = c.req.param();
 
@@ -139,4 +182,5 @@ diariesController.get("/:userId/:date?", async (c) => {
     return c.json({ error: "日記の取得に失敗しました" }, 500);
   }
 });
+
 export default diariesController;

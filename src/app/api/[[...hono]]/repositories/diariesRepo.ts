@@ -27,3 +27,22 @@ export async function findDiaryByLifeRecordId(lifeRecordId: string) {
     where: eq(diaries.life_record_id, lifeRecordId),
   });
 }
+
+export async function insertDiary(values: {
+  userId: string;
+  lifeRecordId: string;
+  title: string;
+  text: string;
+}) {
+  const [created] = await db
+    .insert(diaries)
+    .values({
+      user_id: values.userId,
+      life_record_id: values.lifeRecordId,
+      title: values.title,
+      text: values.text,
+    })
+    .returning();
+
+  return created;
+}
