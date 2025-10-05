@@ -1,7 +1,5 @@
 "use client"
-import Image from "next/image";
 import styles from "./page.module.css";
-import Link from "next/link";
 import { useState ,useContext,createContext, useEffect} from "react";
 
 export default function DiariesList() {
@@ -18,11 +16,11 @@ export default function DiariesList() {
  
     
   const USER_ID = "teamBeta"
-  const [diary,Setdiary] = useState<diary_json>({
+  const [diary,Setdiary] = useState({
    diaries:[{
       id :"1",
       title: "競技プログラミングの勉強をした",
-      created_at: "2025.09.30"}]);
+      created_at: "2025.09.30"}]});
 
     const FetchData = async () => {
     try {
@@ -53,8 +51,8 @@ export default function DiariesList() {
         {Object.entries(diary).map(([key, value]) => (
          <ul key={key}>
           <li className={styles.diary_li} >
-            <Link href={'/diary/'+encodeURIComponent(value.date)}>
-             <p>{value.date}</p> 
+            <Link href={'/diary/'+encodeURIComponent(value.created_at)}>
+             <p>{value.created_at}</p> 
              <h2>{value.title}</h2>
              
             </Link>
