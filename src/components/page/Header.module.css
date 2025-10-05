@@ -9,10 +9,10 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
 
-    > .title {
-      font-size: 20px;
-      font-weight: bold;
-    }
+  .navbar > .logo {
+    height: 43px;
+    width: auto;
   }
 }
