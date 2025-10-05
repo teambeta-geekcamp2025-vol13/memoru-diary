@@ -1,15 +1,13 @@
-"use client"
+"use client";
+
+import Link from "next/link";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
 
 export default function DiaryPage() {
-    const router = useRouter();
   return (
     <div className={styles.page}>
       <h1 className={styles.title}>日記ページ</h1>
-    <ul>
-       <li>id:test</li>
-    </ul>
+      <Link href="/diary/list">日記一覧へ &gt;</Link>
     </div>
   );
 }
