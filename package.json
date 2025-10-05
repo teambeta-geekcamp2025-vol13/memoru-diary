@@ -11,14 +11,16 @@
     "@hono/node-server": "^1.19.5",
     "@supabase/supabase-js": "^2.39.0",
     "@types/node": "^24.5.2",
-    "drizzle-kit": "^0.28.0",
-    "drizzle-orm": "^0.36.0",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.36.4",
     "hono": "^4.6.12",
     "next": "15.5.4",
     "pg": "8.16.3",
+    "postgres": "^3.4.7",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "supabase": "^2.47.2"
+    "supabase": "^2.47.2",
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
@@ -26,9 +28,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "typescript": "^5",
+    "drizzle-kit": "^0.31.5",
     "eslint": "^8.0.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5"
   },
   "scripts": {
     "dev": "next dev --turbopack",

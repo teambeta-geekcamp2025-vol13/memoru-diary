@@ -5,6 +5,7 @@ import { cors } from "hono/cors";
 export const app = new Hono().basePath("/api");
 
 import lifeRecordsController from "./controllers/lifeRecords";
+import diariesController from "./controllers/diaries";
 
 app.use(
   "*",
@@ -15,3 +16,4 @@ app.use(
 app.use("*", cors());
 
 app.route("/lifeRecords", lifeRecordsController);
+app.route("/diaries", diariesController);
